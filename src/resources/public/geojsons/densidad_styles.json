@@ -1,0 +1,125 @@
+{
+    "name": "TIZAYUCA_DENSIDAD",
+    "rules": [
+        {
+            "name": "Muy bajo",
+            "symbolizers": [
+                {
+                    "kind": "Fill",
+                    "opacity": 1.0,
+                    "color": "#fff5f0",
+                    "fillOpacity": 1.0,
+                    "outlineColor": "#232323",
+                    "outlineWidth": 0.9285714285714285,
+                    "outlineOpacity": 1.0,
+                    "join": "bevel",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Densidad"
+                ],
+                "Muy bajo"
+            ]
+        },
+        {
+            "name": "Bajo",
+            "symbolizers": [
+                {
+                    "kind": "Fill",
+                    "opacity": 1.0,
+                    "color": "#fcbea5",
+                    "fillOpacity": 1.0,
+                    "outlineColor": "#232323",
+                    "outlineWidth": 0.9285714285714285,
+                    "outlineOpacity": 1.0,
+                    "join": "bevel",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Densidad"
+                ],
+                "Bajo"
+            ]
+        },
+        {
+            "name": "Medio",
+            "symbolizers": [
+                {
+                    "kind": "Fill",
+                    "opacity": 1.0,
+                    "color": "#fb7050",
+                    "fillOpacity": 1.0,
+                    "outlineColor": "#232323",
+                    "outlineWidth": 0.9285714285714285,
+                    "outlineOpacity": 1.0,
+                    "join": "bevel",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Densidad"
+                ],
+                "Medio"
+            ]
+        },
+        {
+            "name": "Alto",
+            "symbolizers": [
+                {
+                    "kind": "Fill",
+                    "opacity": 1.0,
+                    "color": "#d32020",
+                    "fillOpacity": 1.0,
+                    "outlineColor": "#232323",
+                    "outlineWidth": 0.9285714285714285,
+                    "outlineOpacity": 1.0,
+                    "join": "bevel",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Densidad"
+                ],
+                "Alto"
+            ]
+        },
+        {
+            "name": "Muy alto",
+            "symbolizers": [
+                {
+                    "kind": "Fill",
+                    "opacity": 1.0,
+                    "color": "#67000d",
+                    "fillOpacity": 1.0,
+                    "outlineColor": "#232323",
+                    "outlineWidth": 0.9285714285714285,
+                    "outlineOpacity": 1.0,
+                    "join": "bevel",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Densidad"
+                ],
+                "Muy alto"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,383 @@
+{
+    "name": "Servicios_de_salud_y_asistencia_social",
+    "rules": [
+        {
+            "name": "Asistencia social",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#f7fbff",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#f7fbff-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Asistencia social"
+            ]
+        },
+        {
+            "name": "Cl\u00ednicas",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#e8f2fa",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#e8f2fa-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Cl\u00ednicas"
+            ]
+        },
+        {
+            "name": "Consultorio de medicina especializada",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#dae8f6",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#dae8f6-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Consultorio de medicina especializada"
+            ]
+        },
+        {
+            "name": "Consultorio de medicina general",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#cbdff1",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#cbdff1-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Consultorio de medicina general"
+            ]
+        },
+        {
+            "name": "Consultorio de optometr\u00eda",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#b7d5ea",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#b7d5ea-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Consultorio de optometr\u00eda"
+            ]
+        },
+        {
+            "name": "Consultorio de psicolog\u00eda",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#a0cbe2",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#a0cbe2-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Consultorio de psicolog\u00eda"
+            ]
+        },
+        {
+            "name": "Consultorio de quiropr\u00e1ctica",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#82bbdb",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#82bbdb-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Consultorio de quiropr\u00e1ctica"
+            ]
+        },
+        {
+            "name": "Consultorio dental",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#65aad4",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#65aad4-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Consultorio dental"
+            ]
+        },
+        {
+            "name": "Guarderia",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#4d99ca",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#4d99ca-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Guarderia"
+            ]
+        },
+        {
+            "name": "Hospital de especialidades m\u00e9dicas",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#3787c0",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#3787c0-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Hospital de especialidades m\u00e9dicas"
+            ]
+        },
+        {
+            "name": "Hospital general",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#2474b6",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#2474b6-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Hospital general"
+            ]
+        },
+        {
+            "name": "Laboratorios m\u00e9dicos",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#135fa7",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#135fa7-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Laboratorios m\u00e9dicos"
+            ]
+        },
+        {
+            "name": "Otros consultorios",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#084991",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#084991-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Otros consultorios"
+            ]
+        },
+        {
+            "name": "Servicios de ambulancias",
+            "symbolizers": [
+                {
+                    "opacity": 1.0,
+                    "rotate": 0.0,
+                    "kind": "Mark",
+                    "color": "#08306b",
+                    "wellKnownName": "circle",
+                    "size": 7.142857142857142,
+                    "strokeColor": "#232323",
+                    "strokeWidth": 1,
+                    "strokeOpacity": 1.0,
+                    "fillOpacity": 1.0,
+                    "spriteName": "circle-#08306b-1.0-#232323-1.0-1",
+                    "Z": 0
+                }
+            ],
+            "filter": [
+                "PropertyIsEqualTo",
+                [
+                    "PropertyName",
+                    "Nombre"
+                ],
+                "Servicios de ambulancias"
+            ]
+        }
+    ]
+}

@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "App to visualize map layers created with QGIS on web browsers",
   "main": "src/index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "node --env-file=.env --watch src/index.js"
   },
   "author": "AngelVT",
   "license": "ISC",
   "dependencies": {
+    "appmapvisualizer": "file:",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

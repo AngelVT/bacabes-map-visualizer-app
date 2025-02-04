@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import path from "path";
 
 import { __dirname } from "./path.configuration.js";
+import appRoutes from './routes/app.routes.js'
 
 // * instancing express
 const app = express();
@@ -23,10 +24,12 @@ app.use(cors());
 app.use('/public', express.static(path.join(__dirname, 'resources', 'public')));
 app.use('/public', express.static(path.join(__dirname, 'resources', 'private')));
 
+// * Defining routes
+app.use('/app', appRoutes)
 
 // * defining  not found route / default route
 app.use((req, res) => {
-    res.json("Hello worl")
+    res.sendFile(path.join(__dirname, 'resources', 'public', '404.html'))
 });
 
 export default app;
