@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bacabes MVS - Layer Registration</title>
+    <link rel="shortcut icon" href="/public/img/icon.svg" type="image/x-icon">
+</head>
+<body>
+    <form>
+        <label>Nombre de la capa:
+            <input type="text">
+        </label>
+
+        <label>GeoJSON de la capa:
+            <input type="file" accept=".geojson">
+        </label>
+
+        <label>Simbología de la capa:
+            <input type="file" accept=".json">
+        </label>
+
+        <label>Campo principal de la capa: <br>
+            * El nombre del campo de be coincidir exactamente como aparece en la tabla de atributos
+            <input type="text">
+        </label>
+
+        <label>Tipo de capa:
+            <select>
+                <option value="">Seleccionar...</option>
+                <option value="polygon">Polígonos</option>
+                <option value="point">Puntos/option>
+                <option value="line_chain">Cadena de lineas</option>
+            </select>
+        </label>
+        <div>Visibilidad de la capa:
+            <label><input type="radio" name="visibility" value="public"> Publica</label>
+            <label><input type="radio" name="visibility" value="private"> Privada</label>
+        </div>
+    </form>
+</body>
+</html>

@@ -27,6 +27,13 @@ export const Layer = pool.define(
             validate: {
                 isIn: [['polygon', 'point', 'line_chain']],
             }
+        },
+        layer_visibility: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isIn: [['private', 'public']],
+            }
         }
     }
 );

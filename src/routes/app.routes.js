@@ -5,4 +5,6 @@ const router = Router();
 
 router.get('/view', appControl.goView);
 
+router.get('/layerReg', appControl.goLayerRegistration);
+
 export default router;
