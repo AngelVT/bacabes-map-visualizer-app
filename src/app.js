@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import path from "path";
 
 import { __dirname } from "./path.configuration.js";
-import appRoutes from './routes/app.routes.js'
+import appRoutes from './routes/app.routes.js';
 
 // * instancing express
 const app = express();
