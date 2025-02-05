@@ -5,7 +5,8 @@ export const Layer = pool.define(
     'layer', {
         layer_name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         layer_filename: {
             type: DataTypes.STRING,
