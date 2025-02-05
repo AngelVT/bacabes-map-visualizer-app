@@ -1,2 +1,4 @@
 .env
 node_modules
+src/resources/private/geojsons/*
+src/resources/public/geojsons/*
