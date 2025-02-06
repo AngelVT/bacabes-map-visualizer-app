@@ -1,14 +1,17 @@
-async function drawLayer(layerFile, styleFile, mainField, type) {
+var overlays = {}
+
+async function drawLayer(layerFile, styleFile, mainField, type, layerName) {
     try {
         let response = await fetch(`/public/geojsons/${layerFile}`);
         let layer = await response.json();
-
         let styles = await loadStyles(styleFile, mainField);
 
+        let geoJsonLayer;
+
         if (type === "polygon") {
-            L.geoJson(layer, {
+            geoJsonLayer = L.geoJson(layer, {
                 style: feature => {
-                    let style = styles[feature.properties.Densidad] || {
+                    let style = styles[feature.properties[mainField]] || {
                         color: "#000000",
                         fillColor: "url(#missing)",
                         fillOpacity: 1,
@@ -19,11 +22,11 @@ async function drawLayer(layerFile, styleFile, mainField, type) {
                 onEachFeature: (feature, layer) => {
                     layer.bindPopup(generateTable(feature.properties));
                 }
-            }).addTo(map);
+            });
         }
 
         if (type === "point") {
-            L.geoJson(layer, {
+            geoJsonLayer = L.geoJson(layer, {
                 pointToLayer: (feature, latlng) => {
                     let style = styles[feature.properties[mainField]] || {
                         color: "#000000",
@@ -37,8 +40,13 @@ async function drawLayer(layerFile, styleFile, mainField, type) {
                 onEachFeature: (feature, layer) => {
                     layer.bindPopup(generateTable(feature.properties));
                 }
-            }).addTo(map);
+            });
         }
+
+        geoJsonLayer.addTo(map);
+        overlays[loadSymbols(layerName, styles)] = geoJsonLayer;
+
+        return geoJsonLayer;
     } catch (error) {
         console.error("Error loading GeoJSON:", error);
         alert("Ocurrió un error al cargar el archivo GeoJSON");
@@ -75,7 +83,76 @@ function generateTable(properties) {
         prop.innerHTML = `<b>${key}:</b> ${properties[key]}`
         propertiesChart.appendChild(prop)
     }
-    return propertiesChart
+    return propertiesChart;
 }
 
-drawLayer("densidad.geojson", "densidad_styles.json", "Densidad", "polygon");
+function loadSymbols(layerName, styles) {
+    let symbolContainer = document.createElement('div');
+    symbolContainer.style.display = 'inline';
+
+    let tittle = document.createElement('b');
+    tittle.innerText = layerName;
+
+    symbolContainer.appendChild(tittle);
+
+    let symbols = document.createElement('div');
+
+    for (const key in styles) {
+        let symbol = document.createElement('p');
+        let square = document.createElement('span');
+        let legend = document.createElement('span');
+
+        square.setAttribute('class', 'symbol-square')
+        square.style.border = `1px solid ${styles[key].color}`;
+        square.style.backgroundColor = styles[key].fillColor;
+
+        legend.innerText = ` ${key}`;
+
+        symbol.appendChild(square);
+        symbol.appendChild(legend);
+
+        symbols.appendChild(symbol)
+    }
+
+    symbolContainer.appendChild(symbols);
+
+    return symbolContainer.outerHTML;
+}
+
+async function loadLayers() {
+    const res = await fetch('/api/layer', {
+        method: 'GET',
+        credentials: 'include'
+    });
+
+    const response = await res.json();
+
+    if (!res.ok) {
+        alert(response.msg)
+        return
+    }
+
+
+    for (const layer of response.layers) {
+        console.info('Loaded layer:', layer.layer_name);
+
+        await drawLayer(
+            layer.layer_filename,
+            layer.layer_styles_filename,
+            layer.layer_field,
+            layer.layer_type,
+            layer.layer_name
+        );
+    }
+
+    const layerControls = L.control.layers(overlays, null, { collapsed: false }).addTo(map);
+
+    
+    layerControls.getContainer().querySelector('section').classList.add('layer-container');
+
+    let layerLabel = layerControls.getContainer().querySelector('section').firstChild.querySelector('label');
+
+    layerLabel.click();
+}
+
+loadLayers();

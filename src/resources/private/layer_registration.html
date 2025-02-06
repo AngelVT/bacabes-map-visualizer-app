@@ -14,24 +14,24 @@
     <main class="form-container">
         <form id="layer_form" class="layer-registration">
             <label class="layer_name">Nombre de la capa:
-                <input name="layer_name" class="input" type="text">
+                <input name="layer_name" class="input" type="text" required>
             </label>
             
             <label>GeoJSON de la capa:
-                <input name="layer_file" class="input-file" type="file" accept=".geojson">
+                <input name="layer_file" class="input-file" type="file" accept=".geojson" required>
             </label>
     
             <label>Simbología de la capa:
-                <input name="layer_styles_file" class="input-file" type="file" accept=".json">
+                <input name="layer_styles_file" class="input-file" type="file" accept=".json" required>
             </label>
     
             <label class="main_field">Campo principal de la capa:
                 <span class="tip">* El nombre del campo de be coincidir exactamente como aparece en la tabla de atributos</span>
-                <input name="layer_field" class="input" type="text">
+                <input name="layer_field" class="input" type="text" required>
             </label>
     
             <label>Tipo de capa:
-                <select name="layer_type" class="input">
+                <select name="layer_type" class="input" required>
                     <option value="">Seleccionar...</option>
                     <option value="polygon">Polígonos</option>
                     <option value="point">Puntos</option>
@@ -39,7 +39,7 @@
                 </select>
             </label>
             <div class="radio-container">Visibilidad de la capa:
-                <label><input type="radio" name="layer_visibility" value="public"> Publica</label>
+                <label><input type="radio" name="layer_visibility" value="public" required> Publica</label>
                 <label><input type="radio" name="layer_visibility" value="private"> Privada</label>
             </div>
             <button class="layer_submit submit-button" type="submit">Cargar capa</button>

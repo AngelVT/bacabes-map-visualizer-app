@@ -6,3 +6,46 @@ body,
     padding: 0;
     margin: 0;
 }
+
+.info {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    font-size: 16px;
+}
+
+.info div {
+    margin-bottom: 5px;
+}
+
+.info i {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.dis-none {
+    display: none!important;
+}
+
+.layer-container {
+    scrollbar-width: thin;
+}
+
+.symbol-legend {
+    font-weight: bold;
+}
+
+.symbol-square {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
