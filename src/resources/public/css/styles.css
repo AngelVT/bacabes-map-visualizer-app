@@ -36,6 +36,10 @@ body,
 }
 
 .layer-container {
+    min-width: 250px;
+}
+
+.layer-container > section {
     scrollbar-width: thin;
 }
 

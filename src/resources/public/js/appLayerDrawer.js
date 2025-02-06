@@ -157,6 +157,8 @@ async function loadLayers() {
 
     const layerControls = L.control.layers(overlays, null, { collapsed: false }).addTo(map);
 
+    layerControls.getContainer().classList.add('layer-container');
+
     const layerLabels = layerControls.getContainer().querySelector('section').firstChild.querySelectorAll('label');
 
     for (const label of layerLabels) {
