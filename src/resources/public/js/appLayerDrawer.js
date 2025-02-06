@@ -96,6 +96,7 @@ function loadSymbols(layerName, styles) {
     symbolContainer.appendChild(tittle);
 
     let symbols = document.createElement('div');
+    symbols.setAttribute('class', 'symbol-list');
 
     for (const key in styles) {
         let symbol = document.createElement('p');
@@ -156,8 +157,18 @@ async function loadLayers() {
 
     const layerControls = L.control.layers(overlays, null, { collapsed: false }).addTo(map);
 
-    
-    layerControls.getContainer().querySelector('section').classList.add('layer-container');
+    const layerLabels = layerControls.getContainer().querySelector('section').firstChild.querySelectorAll('label');
+
+    for (const label of layerLabels) {
+        let input = label.querySelector('input');
+        input.addEventListener('focus', () => {
+            let otherSymbolList = document.querySelectorAll('.symbol-list');
+            for (const list of otherSymbolList) {
+                list.classList.add('dis-none')
+            }
+            label.querySelector('.symbol-list').classList.remove('dis-none');
+        });
+    }
 
     let layerLabel = layerControls.getContainer().querySelector('section').firstChild.querySelector('label');
 
