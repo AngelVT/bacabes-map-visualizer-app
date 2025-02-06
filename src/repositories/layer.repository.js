@@ -2,6 +2,9 @@ import { Layer } from "../models/layers.js";
 
 export async function findAllLayers() {
     return await Layer.findAll({
+        where: {
+            layer_visibility: 'public'
+        },
         raw: true,
         nest: true
     });

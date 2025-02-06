@@ -1,5 +1,5 @@
 export function validateFiles(geojson, json) {
-    if (geojson.mimetype !== 'application/geo+json') {
+    if (geojson.mimetype !== 'application/octet-stream') {
         return false
     }
 

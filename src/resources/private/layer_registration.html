@@ -5,40 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/forms.css">
 
+    <script src="/private/js/appLayerRegistrator.js" defer></script>
+
     <title>Bacabes MVS - Layer Registration</title>
     <link rel="shortcut icon" href="/public/img/icon.svg" type="image/x-icon">
 </head>
 <body>
     <main class="form-container">
-        <form class="layer-registration">
+        <form id="layer_form" class="layer-registration">
             <label class="layer_name">Nombre de la capa:
-                <input class="input" type="text">
+                <input name="layer_name" class="input" type="text">
             </label>
             
             <label>GeoJSON de la capa:
-                <input class="input-file" type="file" accept=".geojson">
+                <input name="layer_file" class="input-file" type="file" accept=".geojson">
             </label>
     
             <label>Simbología de la capa:
-                <input class="input-file" type="file" accept=".json">
+                <input name="layer_styles_file" class="input-file" type="file" accept=".json">
             </label>
     
             <label class="main_field">Campo principal de la capa:
                 <span class="tip">* El nombre del campo de be coincidir exactamente como aparece en la tabla de atributos</span>
-                <input class="input" type="text">
+                <input name="layer_field" class="input" type="text">
             </label>
     
             <label>Tipo de capa:
-                <select class="input">
+                <select name="layer_type" class="input">
                     <option value="">Seleccionar...</option>
                     <option value="polygon">Polígonos</option>
-                    <option value="point">Puntos/option>
+                    <option value="point">Puntos</option>
                     <option value="line_chain">Cadena de lineas</option>
                 </select>
             </label>
             <div class="radio-container">Visibilidad de la capa:
-                <label><input type="radio" name="visibility" value="public"> Publica</label>
-                <label><input type="radio" name="visibility" value="private"> Privada</label>
+                <label><input type="radio" name="layer_visibility" value="public"> Publica</label>
+                <label><input type="radio" name="layer_visibility" value="private"> Privada</label>
             </div>
             <button class="layer_submit submit-button" type="submit">Cargar capa</button>
         </form>

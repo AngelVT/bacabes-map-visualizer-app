@@ -1,7 +1,6 @@
 import * as layerRepo from '../repositories/layer.repository.js';
 import * as layerValidate from '../validations/layer.validations.js';
 import * as layerUtils from '../utilities/layer.utilities.js';
-import { DATE } from 'sequelize';
 
 export async function requestAllLayers() {
     const LAYERS = await layerRepo.findAllLayers();

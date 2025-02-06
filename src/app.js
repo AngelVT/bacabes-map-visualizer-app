@@ -28,7 +28,7 @@ app.use(cors());
 
 // * Define access for web files
 app.use('/public', express.static(path.join(__dirname, 'resources', 'public')));
-app.use('/public', express.static(path.join(__dirname, 'resources', 'private')));
+app.use('/private', express.static(path.join(__dirname, 'resources', 'private')));
 
 // * Defining routes
 
