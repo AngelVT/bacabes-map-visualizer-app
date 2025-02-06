@@ -102,9 +102,18 @@ function loadSymbols(layerName, styles) {
         let square = document.createElement('span');
         let legend = document.createElement('span');
 
-        square.setAttribute('class', 'symbol-square')
+        square.setAttribute('class', 'symbol-square');
         square.style.border = `1px solid ${styles[key].color}`;
-        square.style.backgroundColor = styles[key].fillColor;
+
+        if (styles[key].fillColor.startsWith('#')) {
+            square.style.backgroundColor = styles[key].fillColor;
+        } else if (styles[key].fillColor.startsWith('url')) {
+            let str = styles[key].fillColor
+            let matchingId = str.match(/\(#([^)]+)\)/);
+            square.style.backgroundImage = `url(/public/img/patterns/${matchingId[1]}.svg)`;
+        } 
+        
+        
 
         legend.innerText = ` ${key}`;
 
