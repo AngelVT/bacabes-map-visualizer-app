@@ -78,6 +78,7 @@ async function loadStyles(styleFile) {
 
 function generateTable(properties) {
     let propertiesChart = document.createElement('div');
+    propertiesChart.setAttribute('class', 'popup-chart');
     for (const key in properties) {
         let prop = document.createElement('p')
         prop.innerHTML = `<b>${key}:</b> ${properties[key]}`
