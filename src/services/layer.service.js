@@ -93,7 +93,7 @@ export async function requestLayerRegistration(newData, files) {
 
     newData.layer_identifier = LAYER_IDENTIFIER;
 
-    if (!layerUtils.saveLayerFiles(files.layer_file[0], files.layer_styles_file[0], layer_visibility)) {
+    if (!layerUtils.saveLayerFiles(files.layer_file[0], files.layer_styles_file[0], 'public')) {
         return {
             status: 500,
             data: {
@@ -211,7 +211,7 @@ export async function requestLayerDelete(id) {
     }
 
     
-    if (!await layerUtils.deleteLayerFiles(LAYER.layer_filename, LAYER.layer_styles_filename, LAYER.layer_visibility)) {
+    if (!await layerUtils.deleteLayerFiles(LAYER.layer_identifier, 'public')) {
         return {
             status: 500,
             data: {

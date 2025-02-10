@@ -33,9 +33,19 @@ async function drawLayer(identifier, mainField, type, layerName) {
                         fillColor: "url(#missing)",
                         fillOpacity: 1,
                         radius: 8,
-                        weight: 0.5
+                        weight: 0.5,
+                        iconURL: '/public/img/markers/default-marker.svg'
                     };
-                    return L.circleMarker(latlng, style);
+
+                    let icon = L.icon({
+                        iconUrl: style.iconURL,
+                        iconSize: [22, 22],
+                        iconAnchor: [11, 11],
+                        popupAnchor: [0, -11]
+                    });
+
+                    return L.marker(latlng, { icon });
+                    //return L.circleMarker(latlng, style);
                 },
                 onEachFeature: (feature, layer) => {
                     layer.bindPopup(generateTable(feature.properties));
@@ -65,7 +75,8 @@ async function loadStyles(identifier) {
                 fillColor: rule.symbolizers[0].color,
                 fillOpacity: rule.symbolizers[0].opacity || 1,
                 weight: rule.symbolizers[0].outlineWidth || rule.symbolizers[0].strokeWidth || .5,
-                radius: 9
+                radius: 9,
+                iconURL: rule.symbolizers[0].spriteName ? `/public/img/markers/${rule.symbolizers[0].spriteName}.svg` : `/public/img/markers/default-marker.svg`
             };
         }
         return styles;
@@ -155,7 +166,7 @@ async function loadLayers() {
         );
     }
 
-    const layerControls = L.control.layers(overlays, null, { collapsed: false }).addTo(map);
+    const layerControls = L.control.layers(null, overlays, { collapsed: false }).addTo(map);
 
     layerControls.getContainer().classList.add('layer-container');
 

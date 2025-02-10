@@ -58,10 +58,10 @@ export async function updateLayerFiles(layerFile, styleFile, visibility) {
     return true;
 }
 
-export async function deleteLayerFiles(layerFile, styleFile, visibility) {
+export async function deleteLayerFiles(identifier, visibility) {
     try {
-        const layerDestination = path.join(__dirname, 'resources', visibility, 'geojsons', layerFile);
-        const styleDestination = path.join(__dirname, 'resources', visibility, 'geojsons', styleFile);
+        const layerDestination = path.join(__dirname, 'resources', visibility, 'geojsons', `${identifier}_layer.geojson`);
+        const styleDestination = path.join(__dirname, 'resources', visibility, 'geojsons', `${identifier}_styles.json`);
 
         await fs.unlink(layerDestination);
         await fs.unlink(styleDestination);
