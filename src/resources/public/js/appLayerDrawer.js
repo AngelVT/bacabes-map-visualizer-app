@@ -1,10 +1,10 @@
 var overlays = {}
 
-async function drawLayer(layerFile, styleFile, mainField, type, layerName) {
+async function drawLayer(identifier, mainField, type, layerName) {
     try {
-        let response = await fetch(`/public/geojsons/${layerFile}`);
+        let response = await fetch(`/public/geojsons/${identifier}_layer.geojson`);
         let layer = await response.json();
-        let styles = await loadStyles(styleFile, mainField);
+        let styles = await loadStyles(identifier, mainField);
 
         let geoJsonLayer;
 
@@ -53,9 +53,9 @@ async function drawLayer(layerFile, styleFile, mainField, type, layerName) {
     }
 }
 
-async function loadStyles(styleFile) {
+async function loadStyles(identifier) {
     try {
-        let response = await fetch(`/public/geojsons/${styleFile}`);
+        let response = await fetch(`/public/geojsons/${identifier}_styles.json`);
         let styleSheet = await response.json();
         let styles = {};
 
@@ -148,8 +148,7 @@ async function loadLayers() {
         console.info('Loaded layer:', layer.layer_name);
 
         await drawLayer(
-            layer.layer_filename,
-            layer.layer_styles_filename,
+            layer.layer_identifier,
             layer.layer_field,
             layer.layer_type,
             layer.layer_name
@@ -162,14 +161,18 @@ async function loadLayers() {
 
     const layerLabels = layerControls.getContainer().querySelector('section').firstChild.querySelectorAll('label');
 
-    for (const label of layerLabels) {
+    for (const [index ,label] of layerLabels.entries()) {
         let input = label.querySelector('input');
-        input.addEventListener('focus', () => {
+        input.setAttribute('id', response.layers[index].layer_identifier);
+        input.addEventListener('focus', (event) => {
             let otherSymbolList = document.querySelectorAll('.symbol-list');
             for (const list of otherSymbolList) {
                 list.classList.add('dis-none')
             }
             label.querySelector('.symbol-list').classList.remove('dis-none');
+            let newUrl = new URL(window.location);
+            newUrl.searchParams.set("layer", event.target.id);
+            window.history.pushState({}, "", newUrl);
         });
     }
 

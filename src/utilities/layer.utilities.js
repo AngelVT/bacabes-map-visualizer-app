@@ -2,7 +2,7 @@ import path from "path";
 import { promises as fs } from 'fs';
 import { __dirname } from "../path.configuration.js";
 
-export function generateLayerFilename() {
+export function generateLayerIdentifier() {
     return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 

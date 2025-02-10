@@ -8,12 +8,7 @@ export const Layer = pool.define(
             allowNull: false,
             unique: true
         },
-        layer_filename: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
-        layer_styles_filename: {
+        layer_identifier: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true

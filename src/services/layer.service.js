@@ -86,13 +86,12 @@ export async function requestLayerRegistration(newData, files) {
     }
 
 
-    const LAYER_NAME = layerUtils.generateLayerFilename();
+    const LAYER_IDENTIFIER = layerUtils.generateLayerIdentifier();
 
-    files.layer_file[0].originalname = `${LAYER_NAME}_layer.geojson`;
-    files.layer_styles_file[0].originalname = `${LAYER_NAME}_styles.json`;
+    files.layer_file[0].originalname = `${LAYER_IDENTIFIER}_layer.geojson`;
+    files.layer_styles_file[0].originalname = `${LAYER_IDENTIFIER}_styles.json`;
 
-    newData.layer_filename = files.layer_file[0].originalname;
-    newData.layer_styles_filename = files.layer_styles_file[0].originalname;
+    newData.layer_identifier = LAYER_IDENTIFIER;
 
     if (!layerUtils.saveLayerFiles(files.layer_file[0], files.layer_styles_file[0], layer_visibility)) {
         return {

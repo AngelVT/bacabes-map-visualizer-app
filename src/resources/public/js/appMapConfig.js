@@ -154,10 +154,17 @@ function loadMapView() {
 }
 
 map.on("moveend", function () {
+    let newUrl = new URL(window.location);
     let center = map.getCenter();
     let zoom = map.getZoom();
-    let newUrl = `${window.location.pathname}?lat=${center.lat.toFixed(15)}&lng=${center.lng.toFixed(15)}&zoom=${zoom}`;
-    window.history.replaceState(null, "", newUrl);
+    let layer = newUrl.searchParams.get("layer");
+    
+    newUrl.searchParams.set("lat", center.lat.toFixed(15));
+    newUrl.searchParams.set("lng", center.lng.toFixed(15));
+    newUrl.searchParams.set("zoom", zoom);
+    newUrl.searchParams.set("layer", layer);
+
+    window.history.pushState({}, "", newUrl);
 });
 
 loadMapView();
