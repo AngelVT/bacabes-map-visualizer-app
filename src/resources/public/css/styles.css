@@ -8,6 +8,14 @@ body {
     height: 100%;
 }
 
+#pattern-container {
+    position: absolute;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-control-layers-expanded {
+    background-color: #ffffffa9;
+}
+
 .info {
     background: white;
     padding: 10px;

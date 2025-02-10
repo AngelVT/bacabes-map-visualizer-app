@@ -118,6 +118,30 @@ L.control.mapCapture = function (opts) {
 
 map.addControl(L.control.mapCapture({ position: "topleft" }));
 
+L.Control.squareWindow = L.Control.extend({
+    onAdd: function (map) {
+        let button = L.DomUtil.create("button", "leaflet-bar leaflet-control leaflet-control-custom");
+        button.innerHTML = "🗔";
+        button.title = "Capture Screen";
+        button.style.fontSize = "18px";
+        button.style.width = "35px";
+        button.style.height = "35px";
+        button.style.cursor = "pointer";
+
+        button.onclick = async function () {
+            window.open(window.location, 'myWindow', 'width=1000,height=1000,menubar=no,toolbar=no,location=no,scrollbars=no,status=no,resizable=no');
+        };
+
+        return button;
+    }
+});
+
+L.control.squareWindow = function (opts) {
+    return new L.Control.squareWindow(opts);
+};
+
+map.addControl(L.control.squareWindow({ position: "topleft" }));
+
 function loadMapView() {
     let params = new URLSearchParams(window.location.search);
     let lat = parseFloat(params.get("lat"));
