@@ -65,7 +65,7 @@ async function loadStyles(identifier) {
                 fillColor: rule.symbolizers[0].color,
                 fillOpacity: rule.symbolizers[0].opacity || 1,
                 weight: rule.symbolizers[0].outlineWidth || rule.symbolizers[0].strokeWidth || .5,
-                radius: rule.symbolizers[0].size
+                radius: 9
             };
         }
         return styles;

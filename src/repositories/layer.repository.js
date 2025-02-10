@@ -1,10 +1,7 @@
-import { Layer } from "../models/layers.js";
+import { Layer } from "../models/layer.model.js";
 
 export async function findAllLayers() {
     return await Layer.findAll({
-        where: {
-            layer_visibility: 'public'
-        },
         raw: true,
         nest: true
     });

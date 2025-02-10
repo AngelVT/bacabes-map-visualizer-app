@@ -1,5 +1,7 @@
 import { DataTypes } from "sequelize";
 import { pool } from "../configuration/database.configuration.js";
+import { LayerGroup } from "./layer-group.model.js";
+import { VisibilityGroup } from "./visibility-group.model.js";
 
 export const Layer = pool.define(
     'layer', {
@@ -21,14 +23,15 @@ export const Layer = pool.define(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                isIn: [['polygon', 'point', 'line_chain']],
+                isIn: [['polygon', 'point']],
             }
         },
         layer_visibility: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                isIn: [['private', 'public']],
+            references: {
+                model: VisibilityGroup,
+                key: 'id'
             }
         }
     }

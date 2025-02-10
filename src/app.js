@@ -7,9 +7,13 @@ import path from "path";
 import { __dirname } from "./path.configuration.js";
 import appRoutes from './routes/app.routes.js';
 import layerRoutes from './routes/layer.routes.js';
+import { setDefaultValues } from "./configuration/defaultValues.configuration.js";
 
 // * instancing express
 const app = express();
+
+// * setting default values in the DB
+setDefaultValues()
 
 // * configuring and calling dependencies for request handling
 //limiting json content type requests

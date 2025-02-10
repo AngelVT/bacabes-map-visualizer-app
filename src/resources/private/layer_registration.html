@@ -30,18 +30,18 @@
                 <input name="layer_field" class="input" type="text" required>
             </label>
     
-            <label>Tipo de capa:
+
+            <div class="radio-container">Tipo de capa:
+                <label><input type="radio" name="layer_type" value="polygon" required> Polígonos</label>
+                <label><input type="radio" name="layer_type" value="point"> Puntos</label>
+            </div>
+            <label>Visibilidad de la capa:
                 <select name="layer_type" class="input" required>
                     <option value="">Seleccionar...</option>
-                    <option value="polygon">Polígonos</option>
-                    <option value="point">Puntos</option>
-                    <option value="line_chain">Cadena de lineas</option>
+                    <option value="1">Publico</option>
+                    <option value="2">Privado</option>
                 </select>
             </label>
-            <div class="radio-container">Visibilidad de la capa:
-                <label><input type="radio" name="layer_visibility" value="public" required> Publica</label>
-                <label><input type="radio" name="layer_visibility" value="private"> Privada</label>
-            </div>
             <button class="layer_submit submit-button" type="submit">Cargar capa</button>
         </form>
     </main>
