@@ -44,8 +44,10 @@ async function drawLayer(identifier, mainField, type, layerName) {
                         popupAnchor: [0, -11]
                     });
 
+                    if (style.iconURL.includes('circle-')) {
+                        return L.circleMarker(latlng, style);
+                    }
                     return L.marker(latlng, { icon });
-                    //return L.circleMarker(latlng, style);
                 },
                 onEachFeature: (feature, layer) => {
                     layer.bindPopup(generateTable(feature.properties));
@@ -118,15 +120,15 @@ function loadSymbols(layerName, styles) {
         square.setAttribute('class', 'symbol-square');
         square.style.border = `1px solid ${styles[key].color}`;
 
-        if (styles[key].fillColor.startsWith('#')) {
+        if (styles[key].iconURL && !styles[key].iconURL.includes('circle-')) {
+            square.style.backgroundImage = `url(${styles[key].iconURL})`;
+        } else if (styles[key].fillColor.startsWith('#')) {
             square.style.backgroundColor = styles[key].fillColor;
         } else if (styles[key].fillColor.startsWith('url')) {
             let str = styles[key].fillColor
             let matchingId = str.match(/\(#([^)]+)\)/);
             square.style.backgroundImage = `url(/public/img/patterns/${matchingId[1]}.svg)`;
-        } 
-        
-        
+        }
 
         legend.innerText = ` ${key}`;
 
@@ -156,21 +158,21 @@ async function loadLayers() {
 
 
     for (const layer of response.layers) {
-        console.info('Loaded layer:', layer.layer_name);
-
         await drawLayer(
             layer.layer_identifier,
             layer.layer_field,
             layer.layer_type,
             layer.layer_name
         );
+
+        console.info('Loaded layer:', layer.layer_name);
     }
 
     const layerControls = L.control.layers(null, overlays, { collapsed: false }).addTo(map);
 
     layerControls.getContainer().classList.add('layer-container');
 
-    const layerLabels = layerControls.getContainer().querySelector('section').firstChild.querySelectorAll('label');
+    /*const layerLabels = layerControls.getContainer().querySelector('section').firstChild.querySelectorAll('label');
 
     for (const [index ,label] of layerLabels.entries()) {
         let input = label.querySelector('input');
@@ -189,7 +191,7 @@ async function loadLayers() {
 
     let layerLabel = layerControls.getContainer().querySelector('section').firstChild.querySelector('label');
 
-    layerLabel.click();
+    layerLabel.click();*/
 }
 
 loadLayers();

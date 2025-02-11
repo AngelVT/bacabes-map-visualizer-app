@@ -2,6 +2,9 @@ import { Layer } from "../models/layer.model.js";
 
 export async function findAllLayers() {
     return await Layer.findAll({
+        order: [
+            ['layer_type', 'DESC']
+        ],
         raw: true,
         nest: true
     });

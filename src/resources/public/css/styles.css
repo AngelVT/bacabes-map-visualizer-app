@@ -13,7 +13,11 @@ body {
 }
 
 .leaflet-popup-content-wrapper, .leaflet-control-layers-expanded {
-    background-color: #ffffffa9;
+    background-color: #a7b8bd96;
+}
+
+.leaflet-popup-tip {
+    background-color: #a7b8bd;
 }
 
 .info {
@@ -50,6 +54,10 @@ body {
 
 .layer-container > section {
     scrollbar-width: thin;
+}
+
+.symbol-list {
+    margin-left: 15px;
 }
 
 .symbol-legend {
