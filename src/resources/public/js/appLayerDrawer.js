@@ -44,7 +44,7 @@ async function drawLayer(identifier, mainField, type, layerName) {
                         popupAnchor: [0, -11]
                     });
 
-                    if (style.iconURL.includes('circle-')) {
+                    if (style.iconURL.includes('circle-') || !style.iconURL) {
                         return L.circleMarker(latlng, style);
                     }
                     return L.marker(latlng, { icon });
@@ -78,7 +78,7 @@ async function loadStyles(identifier) {
                 fillOpacity: rule.symbolizers[0].opacity || 1,
                 weight: rule.symbolizers[0].outlineWidth || rule.symbolizers[0].strokeWidth || .5,
                 radius: 9,
-                iconURL: rule.symbolizers[0].spriteName ? `/public/img/markers/${rule.symbolizers[0].spriteName}.svg` : `/public/img/markers/default-marker.svg`
+                iconURL: rule.symbolizers[0].spriteName ? `/public/img/markers/${rule.symbolizers[0].spriteName}.svg` : undefined
             };
         }
         return styles;
