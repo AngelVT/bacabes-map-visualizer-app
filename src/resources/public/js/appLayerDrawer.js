@@ -8,9 +8,11 @@ async function drawLayer(identifier, mainField, type, layerName) {
 
         let geoJsonLayer;
 
-        if (type === "polygon") {
+        if (true) {
             geoJsonLayer = L.geoJson(layer, {
+                renderer: L.canvas(),
                 style: feature => {
+                    console.log(feature.geometry.type)
                     let style = styles[feature.properties[mainField]] || {
                         color: "#000000",
                         fillColor: "url(#missing)",
@@ -20,14 +22,19 @@ async function drawLayer(identifier, mainField, type, layerName) {
                     return style;
                 },
                 onEachFeature: (feature, layer) => {
-                    layer.bindPopup(generateTable(feature.properties));
+                    layer.on("click", () => {
+                        generateTable(feature.properties);
+                        selectedFeature = layer;
+                    });
                 }
             });
         }
 
         if (type === "point") {
             geoJsonLayer = L.geoJson(layer, {
+                renderer: L.canvas(),
                 pointToLayer: (feature, latlng) => {
+                    console.log(feature.geometry.type)
                     let style = styles[feature.properties[mainField]] || {
                         color: "#000000",
                         fillColor: "url(#missing)",
@@ -50,7 +57,9 @@ async function drawLayer(identifier, mainField, type, layerName) {
                     return L.marker(latlng, { icon });
                 },
                 onEachFeature: (feature, layer) => {
-                    layer.bindPopup(generateTable(feature.properties));
+                    layer.on("click", () => {
+                        generateTable(feature.properties);
+                    });
                 }
             });
         }
@@ -75,7 +84,7 @@ async function loadStyles(identifier) {
             styles[rule.name] = {
                 color: rule.symbolizers[0].strokeColor || rule.symbolizers[0].outlineColor,
                 fillColor: rule.symbolizers[0].color,
-                fillOpacity: rule.symbolizers[0].opacity || 1,
+                fillOpacity: 1,
                 weight: rule.symbolizers[0].outlineWidth || rule.symbolizers[0].strokeWidth || .5,
                 radius: 9,
                 iconURL: rule.symbolizers[0].spriteName ? `/public/img/markers/${rule.symbolizers[0].spriteName}.svg` : undefined
@@ -90,14 +99,15 @@ async function loadStyles(identifier) {
 }
 
 function generateTable(properties) {
-    let propertiesChart = document.createElement('div');
-    propertiesChart.setAttribute('class', 'popup-chart');
+    const infoPanel = document.getElementById('information-panel');
+    infoPanel.classList.remove('dis-none');
+    const infoChart = document.getElementById('information-chart');
+    infoChart.innerHTML = '';
     for (const key in properties) {
         let prop = document.createElement('p')
         prop.innerHTML = `<b>${key}:</b> ${properties[key]}`
-        propertiesChart.appendChild(prop)
+        infoChart.appendChild(prop)
     }
-    return propertiesChart;
 }
 
 function loadSymbols(layerName, styles) {

@@ -12,12 +12,30 @@ body {
     position: absolute;
 }
 
-.leaflet-popup-content-wrapper, .leaflet-control-layers-expanded {
+.leaflet-popup-content-wrapper,
+.leaflet-control-layers-expanded,
+.leaflet-popup-tip,
+.opacity-control {
     background-color: #a7b8bd96;
 }
 
-.leaflet-popup-tip {
-    background-color: #a7b8bd;
+.control-square {
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.opacity-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.opacity-control > input{
+    margin-left: 8px;
 }
 
 .info {
@@ -73,12 +91,12 @@ body {
     background-size: cover;
 }
 
-.popup-chart {
+/*.popup-chart {
     font-size: 20px;
-}
+}*/
 
 #map-container {
-    position: relative; /* Ensure the map is the reference for absolute positioning */
+    position: relative;
     height: 100dvh;
 }
 
@@ -89,7 +107,7 @@ body {
     width: 10px;
     height: 10px;
     background: none;
-    pointer-events: none; /* Ensures it doesn't block map interactions */
+    pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
@@ -112,4 +130,28 @@ body {
     height: 2px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.chart-panel {
+    width: 250px;
+    border-radius: 8px;
+    background-color: #a7b8bd96;
+    padding: 18px 3% 3% 3%;
+}
+
+.chart-info {
+    max-height: 25dvh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+.close-button {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 10px;
+    color: #333;
 }
